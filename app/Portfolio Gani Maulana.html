@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gani Maulana – Junior Web Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#EEF1F8;--surface:#FFFFFF;--ink:#0E1630;--mute:#5B6481;--line:#DCE1EE;--acc:#3D5AFE;--acc-ink:#FFFFFF;--hot:#FF5C7A;--shell:#C9D0E4;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0A0F1F;--surface:#141B33;--ink:#EEF1FB;--mute:#9AA4C4;--line:#232C4D;--acc:#7C93FF;--acc-ink:#0A0F1F;--hot:#FF7B93;--shell:#1B2342}}
+:root[data-theme="dark"]{--bg:#0A0F1F;--surface:#141B33;--ink:#EEF1FB;--mute:#9AA4C4;--line:#232C4D;--acc:#7C93FF;--acc-ink:#0A0F1F;--hot:#FF7B93;--shell:#1B2342}
+*,*::before,*::after{box-sizing:inherit}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;height:100%;background:var(--shell);color:var(--ink);font-family:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif;display:flex;justify-content:center;align-items:center}
+.app{position:relative;width:100%;height:100%;max-width:430px;background:var(--bg);display:flex;flex-direction:column;overflow:hidden}
+@media (min-width:520px){.app{height:min(860px,94%);border-radius:44px;border:8px solid var(--ink);box-shadow:0 30px 60px rgba(10,15,31,.25)}}
+header{display:flex;align-items:center;gap:14px;padding:18px 20px 14px}
+.avatar{width:48px;height:48px;flex:none;clip-path:polygon(30% 0,70% 0,100% 30%,100% 70%,70% 100%,30% 100%,0 70%,0 30%);background:linear-gradient(135deg,var(--acc),var(--hot));display:grid;place-items:center;color:#fff;font-weight:800;font-size:16px}
+.who{flex:1;min-width:0}.who b{display:block;font-size:16px;font-weight:700;letter-spacing:.2px}.who span{font-size:13px;color:var(--mute)}
+.icon-btn{width:42px;height:42px;border-radius:14px;border:1px solid var(--line);background:var(--surface);color:var(--ink);display:grid;place-items:center;cursor:pointer}
+.icon-btn:focus-visible,.tab:focus-visible,.btn:focus-visible,.row:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+main{flex:1;overflow-y:auto;padding:6px 20px 120px;scrollbar-width:none}
+main::-webkit-scrollbar{display:none}
+section{display:none}section.on{display:block}
+h1{font-size:34px;line-height:1.1;letter-spacing:-1px;margin:10px 0 14px;font-weight:800}
+h2{font-size:26px;letter-spacing:-.6px;margin:10px 0 14px;font-weight:800}
+h3{font-size:16px;margin:0 0 4px;font-weight:700}
+p{color:var(--mute);line-height:1.65;font-size:15px;margin:0 0 14px}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border-radius:99px;background:var(--surface);border:1px solid var(--line);font-size:13px;font-weight:600}
+.dot{width:8px;height:8px;border-radius:50%;background:#22C55E;box-shadow:0 0 0 4px rgba(34,197,94,.2)}
+.btns{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+.btn{border:0;font:inherit;font-weight:700;font-size:14px;padding:14px 20px;border-radius:16px;cursor:pointer;background:var(--acc);color:var(--acc-ink)}
+.btn.alt{background:var(--surface);color:var(--ink);border:1px solid var(--line)}
+.code{margin-top:26px;border-radius:24px;padding:18px;background:var(--ink);color:var(--bg);font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;line-height:1.8}
+.code i{font-style:normal;color:var(--hot)}.code u{text-decoration:none;color:#8FA2FF}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:16px;margin-bottom:14px}
+.thumb{height:120px;border-radius:14px;margin-bottom:14px;position:relative;overflow:hidden}
+.t1{background:linear-gradient(135deg,#3D5AFE,#8FA2FF)}.t2{background:linear-gradient(135deg,#FF5C7A,#FFB199)}.t3{background:linear-gradient(135deg,#0E1630,#3D5AFE)}
+.thumb::before{content:"";position:absolute;left:16px;top:16px;right:16px;height:14px;border-radius:7px;background:rgba(255,255,255,.35)}
+.thumb::after{content:"";position:absolute;left:16px;bottom:16px;width:45%;height:44px;border-radius:12px;background:rgba(255,255,255,.55)}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.tag{font-size:12px;font-weight:600;padding:5px 10px;border-radius:99px;background:var(--bg);color:var(--mute)}
+.skill{margin-bottom:16px}.skill div{display:flex;justify-content:space-between;font-size:14px;font-weight:600;margin-bottom:8px}
+.bar{height:8px;border-radius:8px;background:var(--line);overflow:hidden}.bar i{display:block;height:100%;border-radius:8px;background:linear-gradient(90deg,var(--acc),var(--hot));width:0;transition:width .7s ease}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px}
+.facts .card{margin:0;padding:14px}.facts b{display:block;font-size:22px;font-weight:800;color:var(--ink)}.facts span{font-size:13px;color:var(--mute)}
+.row{display:flex;align-items:center;gap:14px;padding:16px;border-radius:20px;background:var(--surface);border:1px solid var(--line);margin-bottom:12px;color:var(--ink);text-decoration:none;font:inherit;width:100%;text-align:left;cursor:pointer}
+.row .ic{width:44px;height:44px;border-radius:14px;background:var(--bg);display:grid;place-items:center;color:var(--acc);flex:none}
+.row small{display:block;color:var(--mute);font-size:13px;margin-top:2px}
+.toast{position:absolute;left:50%;bottom:112px;transform:translate(-50%,20px);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:14px;font-size:13px;font-weight:600;opacity:0;pointer-events:none;transition:.25s}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+nav{position:absolute;left:16px;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));display:flex;justify-content:space-between;padding:8px;border-radius:28px;background:color-mix(in srgb,var(--surface) 82%,transparent);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid var(--line);box-shadow:0 12px 30px rgba(14,22,48,.14)}
+.tab{flex:1;border:0;background:none;color:var(--mute);font:inherit;font-size:11px;font-weight:600;display:flex;flex-direction:column;align-items:center;gap:4px;padding:9px 0;border-radius:20px;cursor:pointer;transition:.2s}
+.tab.on{background:var(--acc);color:var(--acc-ink)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <div class="avatar">GM</div>
+    <div class="who"><b>Gani Maulana</b><span>Junior Web Developer</span></div>
+    <button class="icon-btn" id="theme" aria-label="Ganti tema">
+      <svg viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+  </header>
+
+  <main id="main">
+    <section id="home" class="on">
+      <span class="pill"><span class="dot"></span>Terbuka untuk pekerjaan</span>
+      <h1>Halo, saya Gani. Saya membangun web yang cepat dan nyaman dipakai.</h1>
+      <p>Junior web developer yang suka mengubah desain menjadi halaman yang rapi, responsif, dan mudah dirawat.</p>
+      <div class="btns">
+        <button class="btn" data-go="projects">Lihat proyek</button>
+        <button class="btn alt" data-go="contact">Hubungi saya</button>
+      </div>
+      <div class="code"><u>const</u> gani = {<br>&nbsp;&nbsp;role: <i>"Web Developer"</i>,<br>&nbsp;&nbsp;stack: [<i>"HTML"</i>, <i>"CSS"</i>, <i>"JS"</i>],<br>&nbsp;&nbsp;belajar: <i>"React"</i><br>};</div>
+    </section>
+
+    <section id="about">
+      <h2>Tentang saya</h2>
+      <p>Saya memulai perjalanan di dunia web dengan rasa penasaran tentang cara sebuah halaman dibuat. Sekarang saya fokus membuat antarmuka yang bersih, mudah diakses, dan terasa ringan di ponsel.</p>
+      <p>Saya senang belajar hal baru, menerima masukan, dan bekerja dalam tim untuk menghasilkan produk yang berguna.</p>
+      <div class="facts">
+        <div class="card"><b>10+</b><span>Proyek latihan</span></div>
+        <div class="card"><b>2</b><span>Tahun belajar</span></div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Proyek</h2>
+      <div class="card"><div class="thumb t1"></div><h3>Toko Online Mini</h3><p style="margin:0">Katalog produk dengan keranjang dan filter kategori.</p><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div></div>
+      <div class="card"><div class="thumb t2"></div><h3>Aplikasi Catatan Harian</h3><p style="margin:0">Catat tugas harian dengan penyimpanan di peramban.</p><div class="tags"><span class="tag">React</span><span class="tag">Tailwind</span></div></div>
+      <div class="card"><div class="thumb t3"></div><h3>Dasbor Cuaca</h3><p style="margin:0">Prakiraan cuaca dari API publik dengan tampilan gelap dan terang.</p><div class="tags"><span class="tag">API</span><span class="tag">JavaScript</span></div></div>
+    </section>
+
+    <section id="skills">
+      <h2>Keahlian</h2>
+      <div class="skill"><div><span>HTML &amp; CSS</span><span>90%</span></div><span class="bar"><i data-w="90"></i></span></div>
+      <div class="skill"><div><span>JavaScript</span><span>75%</span></div><span class="bar"><i data-w="75"></i></span></div>
+      <div class="skill"><div><span>React</span><span>60%</span></div><span class="bar"><i data-w="60"></i></span></div>
+      <div class="skill"><div><span>Git &amp; GitHub</span><span>70%</span></div><span class="bar"><i data-w="70"></i></span></div>
+      <div class="skill"><div><span>Desain responsif</span><span>85%</span></div><span class="bar"><i data-w="85"></i></span></div>
+    </section>
+
+    <section id="contact">
+      <h2>Kontak</h2>
+      <p>Punya proyek atau lowongan? Kirim pesan, saya akan membalas secepatnya.</p>
+      <button class="row" id="copy"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg></span><span><b>Salin email</b><small>gani@contoh.com</small></span></button>
+      <a class="row" href="#contact"><span class="ic"><svg viewBox="0 0 24 24"><path d="M9 19c-4 1-4-2-6-2m12 4v-3.5c0-1 .1-1.400-.5-2 2.800-.3 5.500-1.400 5.500-6a4.600 4.600 0 0 0-1.300-3.200 4.200 4.200 0 0 0-.1-3.200s-1-.3-3.400 1.300a11.600 11.600 0 0 0-6 0C6.800 2.800 5.800 3.100 5.800 3.100a4.200 4.200 0 0 0-.1 3.200A4.600 4.600 0 0 0 4.400 9.500c0 4.600 2.700 5.700 5.500 6-.6.600-.6 1.200-.5 2V21"/></svg></span><span><b>GitHub</b><small>github.com/ganimaulana</small></span></a>
+      <a class="row" href="#contact"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 11v5M8 8v.01M12 16v-5m0 2.500c0-1.400 1-2.500 2.500-2.500S17 12 17 13.500V16"/></svg></span><span><b>LinkedIn</b><small>linkedin.com/in/ganimaulana</small></span></a>
+    </section>
+  </main>
+
+  <div class="toast" id="toast">Email disalin</div>
+
+  <nav aria-label="Menu utama">
+    <button class="tab on" data-go="home"><svg viewBox="0 0 24 24"><path d="M3 11 12 3l9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Home</button>
+    <button class="tab" data-go="about"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>About</button>
+    <button class="tab" data-go="projects"><svg viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Projects</button>
+    <button class="tab" data-go="skills"><svg viewBox="0 0 24 24"><path d="m12 3 2.700 5.600 6.100.9-4.400 4.300 1 6.100L12 17l-5.400 2.900 1-6.100L3.200 9.500l6.100-.9z"/></svg>Skills</button>
+    <button class="tab" data-go="contact"><svg viewBox="0 0 24 24"><path d="m21 3-9.500 9.500M21 3l-6.500 18-3-8.500L3 9.500z"/></svg>Contact</button>
+  </nav>
+</div>
+
+<script>
+(function(){
+  var ids=['home','about','projects','skills','contact'];
+  var main=document.getElementById('main');
+  function show(id){
+    if(ids.indexOf(id)<0)id='home';
+    ids.forEach(function(s){document.getElementById(s).classList.toggle('on',s===id)});
+    document.querySelectorAll('.tab').forEach(function(t){t.classList.toggle('on',t.dataset.go===id)});
+    main.scrollTop=0;
+    document.querySelectorAll('#'+id+' .bar i').forEach(function(b){b.style.width='0';setTimeout(function(){b.style.width=b.dataset.w+'%'},50)});
+    try{if(location.hash!=='#'+id)history.replaceState(null,'','#'+id)}catch(e){}
+  }
+  document.querySelectorAll('[data-go]').forEach(function(b){b.addEventListener('click',function(){show(b.dataset.go)})});
+  window.addEventListener('hashchange',function(){show(location.hash.slice(1))});
+  show(location.hash.slice(1));
+
+  var root=document.documentElement;
+  try{var saved=localStorage.getItem('theme');if(saved)root.setAttribute('data-theme',saved)}catch(e){}
+  document.getElementById('theme').addEventListener('click',function(){
+    var dark=getComputedStyle(root).getPropertyValue('--bg').trim()==='#0A0F1F';
+    var next=dark?'light':'dark';
+    root.setAttribute('data-theme',next);
+    try{localStorage.setItem('theme',next)}catch(e){}
+  });
+
+  var toast=document.getElementById('toast');
+  document.getElementById('copy').addEventListener('click',function(){
+    try{navigator.clipboard.writeText('gani@contoh.com')}catch(e){}
+    toast.classList.add('show');setTimeout(function(){toast.classList.remove('show')},1600);
+  });
+})();
+</script>
+</body>
+</html>
