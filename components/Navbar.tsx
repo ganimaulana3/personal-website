@@ -1,11 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 // Struktur data menggunakan SVG komponen langsung
 const items = [
   {
     id: "home",
+    href: "/",
     label: "Home",
     icon: (props: React.SVGProps<SVGSVGElement>) => (
       <svg 
@@ -24,6 +27,7 @@ const items = [
   },
   {
     id: "about",
+    href: "/about",
     label: "About",
     icon: (props: React.SVGProps<SVGSVGElement>) => (
       <svg
@@ -65,6 +69,7 @@ const items = [
   },
   {
     id: "skills",
+    href: "/skills",
     label: "Skills",
     icon: (props: React.SVGProps<SVGSVGElement>) => (
       <svg
@@ -99,6 +104,7 @@ const items = [
   },
   {
     id: "projects",
+    href: "/projects",
     label: "Projects",
     icon: (props: React.SVGProps<SVGSVGElement>) => (
       <svg
@@ -133,6 +139,7 @@ const items = [
   },
   {
     id: "contact",
+    href: "/contact",
     label: "Contact",
     icon: (props: React.SVGProps<SVGSVGElement>) => (
       <svg
@@ -154,38 +161,17 @@ const items = [
 ];
 
 export default function BottomNav() {
-  const [active, setActive] = useState("home");
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => e.isIntersecting && setActive(e.target.id));
-      },
-      { rootMargin: "-40% 0px -50% 0px" }
-    );
-
-    items.forEach(({ id }) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  } , []);
-
-  const go = (id: string) => {
-    setActive(id);
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  };
+  const pathname = usePathname();
 
   return (
     <nav className="fixed inset-x-4 bottom-4 z-50 mx-auto max-w-md rounded-[28px] border border-transparent bg-white p-2 shadow-[0_8px_30px_rgba(15,23,42,0.12)] dark:border-slate-800 dark:bg-slate-900 dark:shadow-[0_8px_30px_rgba(0,0,0,0.5)]">
       <ul className="flex items-center justify-between">
-        {items.map(({ id, label, icon: Icon }) => {
-          const isActive = active === id;
+        {items.map(({ id, label, icon: Icon, href }) => {
+          const isActive = pathname === href;
           return (
             <li key={id}>
-              <button
-                onClick={() => go(id)}
+              <Link
+                href={href}
                 aria-current={isActive ? "page" : undefined}
                 className={`flex flex-col items-center gap-1 rounded-2xl px-4 py-2 text-[11px] font-semibold transition-all duration-200 ${
                   isActive
@@ -196,7 +182,7 @@ export default function BottomNav() {
                 {/* Mengirimkan width & height via className/props tailwind ke komponen SVG */}
                 <Icon className="h-5 w-5" />
                 {label}
-              </button>
+              </Link>
             </li>
           );
         })}
