@@ -1,8 +1,12 @@
 import Link from "next/link";
+import ShiningStars from "@/components/ShiningStars";
+import ShootingStars from "@/components/ShootingStars";
 
 export default function Home() {
   return (
-    <section id="home" className="px-5 pt-6 space-y-5">
+    <section id="home" className="relative px-5 pt-6 space-y-5">
+      <ShiningStars />
+      <ShootingStars />
       {/* 1. Badge */}
       <div className="inline-flex items-center gap-2 rounded-full border-slate-200 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200">
         <span className="size-2 rounded-full bg-green-500" />
