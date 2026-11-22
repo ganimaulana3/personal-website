@@ -10,7 +10,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="id">
-      <body className="antialiased bg-slate-50 text-slate-900 transition-colors duration-300 dark:bg-slate-950 dark:text-slate-50">
+      <body className="antialiased bg-slate-50 text-slate-900 transition-colors duration-300 dark:text-slate-50">
         <ThemeProvider>
           {/* Header di bagian atas */}
           <Header />
