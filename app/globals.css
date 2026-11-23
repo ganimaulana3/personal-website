@@ -36,12 +36,12 @@
   }
 }
 
-/* body {
+body {
   background-image:
     linear-gradient(rgba(100, 116, 139, 0.07) 1px, transparent 1px),
     linear-gradient(90deg, rgba(100, 116, 139, 0.07) 1px, transparent 1px);
   background-size: 32px 32px;
-} */
+}
 
 .dark body {
   background-color: #020617; /* slate-950 */
