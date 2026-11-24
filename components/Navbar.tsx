@@ -164,7 +164,7 @@ export default function BottomNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed inset-x-4 bottom-4 z-50 mx-auto max-w-md rounded-[28px] border border-transparent bg-white p-2 shadow-[0_8px_30px_rgba(15,23,42,0.12)] dark:border-slate-800 dark:bg-slate-900 dark:shadow-[0_8px_30px_rgba(0,0,0,0.5)]">
+    <nav className="fixed inset-x-4 bottom-4 z-50 mx-auto max-w-md rounded-[28px] border border-transparent bg-white p-2 shadow-[0_8px_30px_rgba(15,23,42,0.12)] transition-colors duration-300 dark:border-slate-800 dark:bg-slate-900 dark:shadow-[0_8px_30px_rgba(0,0,0,0.5)]">
       <ul className="flex items-center justify-between">
         {items.map(({ id, label, icon: Icon, href }) => {
           const isActive = pathname === href;
@@ -175,7 +175,7 @@ export default function BottomNav() {
                 aria-current={isActive ? "page" : undefined}
                 className={`flex flex-col items-center gap-1 rounded-2xl px-4 py-2 text-[11px] font-semibold transition-all duration-200 ${
                   isActive
-                    ? "bg-[#4361ff] text-white shadow-md shadow-blue-500/30"
+                    ? "bg-purple-600 text-white shadow-md shadow-purple-500/30"
                     : "text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-100"
                 }`}
               >

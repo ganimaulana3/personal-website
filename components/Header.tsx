@@ -7,27 +7,22 @@ import { useTheme } from "./theme-provider";
 export default function Header() {
   const { theme, toggleTheme } = useTheme();
   return (
-    <header className="flex items-center justify-between px-5 py-4 border-b border-slate-200 dark:border-slate-800">
-      <div className="flex items-center gap-3">
-        <Image
-          src="/testing/profile.jpg"
-          alt="Foto profil Gani Maulana"
-          width={44}
-          height={44}
-          className="h-11 w-11 rounded-xl object-cover"
-        />
-        <div className="leading-tight">
-          <p className="font-bold text-slate-900 dark:text-slate-100">Gani Maulana</p>
-          <p className="text-xs text-slate-500 dark:text-slate-400">Junior Web Developer</p>
-        </div>
-      </div>
-
+    <header className="flex items-center justify-between border-b border-slate-200 px-5 py-4 dark:border-white/10">
+      <Image
+        src="/testing/profile.jpg"
+        alt="Logo Gani Maulana"
+        width={40}
+        height={40}
+        className="h-10 w-10 rounded-xl object-cover"
+      />
       <button
         onClick={toggleTheme}
         aria-label="Ganti tema"
-        className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-slate-700 shadow-sm transition-colors dark:bg-slate-900 dark:text-slate-300 dark:shadow-none"
+        className="flex h-10 items-center justify-center gap-2 rounded-full border px-4 shadow-sm transition-colors
+          border-slate-200 bg-white text-slate-600 hover:bg-slate-50
+          dark:border-white/10 dark:bg-[#151324] dark:text-gray-300 dark:shadow-none dark:hover:bg-[#1d1836]"
       >
-        {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+        {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
       </button>
     </header>
   );

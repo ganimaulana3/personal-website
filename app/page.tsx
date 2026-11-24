@@ -6,56 +6,27 @@ import BackgroundFX from "@/components/home/BackgroundFX";
 export default function Home() {
   return (
     <BackgroundFX>
-      <section id="home" className="relative px-5 pt-6 space-y-5">
-        <ShiningStars />
-        <ShootingStars />
-        {/* 1. Badge */}
-        <div className="inline-flex items-center gap-2 rounded-full border-slate-200 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200">
-          <span className="size-2 rounded-full bg-green-500" />
-            Terbuka untuk pekerjaan
-        </div>
-        {/* 2. H1 + paragraf */}
-        <div className="space-y-3">
-          <h1 className="text-balance text-4xl font-extrabold leading-tight tracking-tight text-slate-900 dark:text-white">
-            Halo, saya Gani. Saya membangu web yang cepat dan nyaman dipakai
+      <section className="flex items-center justify-between gap-4">
+        <ShiningStars/>
+        <ShootingStars/>
+        <div className="flex-1 space-y-2">
+          <p className="text-sm text-slate-500 transition-colors duration-300 dark:text-gray-300">Hello, I&apos;m</p>
+          <h1 className="text-2xl font-bold leading-tight">
+            Gani <span className="text-purple-600 dark:text-purple-400">Maulana</span>
           </h1>
-          <p className="text-base leading-relaxed text-slate-500 dark:text-slate-400">
-            Junior web developer yang suka mengubah desain menjadi halaman yang rapi, responsif dan mudah dirawat
+          <p className="inline-block border-b-2 border-purple-600 dark:border-purple-500 pb-1 text-xs font-medium text-slate-700 transition-colors duration-300 dark:text-gray-200">
+            Web &amp; Mobile Developer
+          </p>
+          <p className="pt-1 text-xs leading-relaxed text-slate-500 transition-colors duration-300 dark:text-gray-400">
+            Saya seorang D3 Teknik Informatika yang bersemangat dalam membangun aplikasi modern, baik di web maupun mobile.
           </p>
         </div>
-        {/* 3. CTA */}
-        <div className="flex flex-wrap gap-3">
-          <Link 
-            href="/projects"
-            className="rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-blue-700 active:scale-95 dark:bg-blue-500 dark:hover:bg-blue-400"
-          >
-            Lihat proyek
-          </Link>
-          <Link
-            href="/contact"
-            className="rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-100 active:scale-95 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:hover:bg-slate-800"
-          >
-            Hubungi saya
-          </Link>
-        </div>
-        {/* 4. Kartu kode */}
-        <div className="rounded-3xl border border-transparent bg-slate-900 p-5 font-mono text-sm leading-relaxed text-slate-100 dark:border-slate-800">
-          <pre className="overflow-x-auto">
-            <code>
-              <span className="text-blue-400">const</span> gani = {"{"}
-              {"\n"}
-              {"  "}role: <span className="text-rose-400">"Web Developer"</span>,
-              {"\n"}
-              {"  "}stack: [
-                <span className="text-rose-400">"HTML"</span>,{"  "}
-                <span className="text-rose-400">CSS</span>,{" "}
-                <span className="text-rose-400">JS</span>],
-              {"\n"}
-              {"  "}belajar: <span className="text-rose-400">"React"</span>
-              {"\n"}
-              {"}"};
-            </code>
-          </pre>
+        <div className="relative h-28 w-28 shrink-0 rounded-full border-2 border-purple-500/60 dark:border-purple-400/50 p-1 shadow-[0_0_25px_rgba(168,85,247,0.25)]">
+          <img
+            src="/testing/profile.jpg" // Ganti dengan path foto Anda di folder public/
+            alt="Gani Maulana"
+            className="h-full w-full rounded-full object-cover"
+          />
         </div>
       </section>
     </BackgroundFX>
