@@ -1,34 +1,119 @@
 import Link from "next/link";
+import { ArrowRight, CodeXml, CalendarDays, GraduationCap, Download } from "lucide-react";
 import ShiningStars from "@/components/ShiningStars";
 import ShootingStars from "@/components/ShootingStars";
 import BackgroundFX from "@/components/home/BackgroundFX";
 
+const stats = [
+  {
+    label: "Projek",
+    value: "5+",
+    icon: CodeXml,
+  },
+  {
+    label: "Tahun Pengalaman",
+    value: "2+",
+    icon: CalendarDays,
+  },
+  {
+    label: "Teknik Informatika",
+    value: "D3",
+    icon: GraduationCap,
+  },
+]
+
 export default function Home() {
   return (
     <BackgroundFX>
-      <section className="flex items-center justify-between gap-4">
-        <ShiningStars/>
-        <ShootingStars/>
-        <div className="flex-1 space-y-2">
-          <p className="text-sm text-slate-500 transition-colors duration-300 dark:text-gray-300">Hello, I&apos;m</p>
-          <h1 className="text-2xl font-bold leading-tight">
-            Gani <span className="text-purple-600 dark:text-purple-400">Maulana</span>
-          </h1>
-          <p className="inline-block border-b-2 border-purple-600 dark:border-purple-500 pb-1 text-xs font-medium text-slate-700 transition-colors duration-300 dark:text-gray-200">
-            Web &amp; Mobile Developer
-          </p>
-          <p className="pt-1 text-xs leading-relaxed text-slate-500 transition-colors duration-300 dark:text-gray-400">
-            Saya seorang D3 Teknik Informatika yang bersemangat dalam membangun aplikasi modern, baik di web maupun mobile.
-          </p>
-        </div>
-        <div className="relative h-28 w-28 shrink-0 rounded-full border-2 border-purple-500/60 dark:border-purple-400/50 p-1 shadow-[0_0_25px_rgba(168,85,247,0.25)]">
-          <img
-            src="/testing/profile.jpg" // Ganti dengan path foto Anda di folder public/
-            alt="Gani Maulana"
-            className="h-full w-full rounded-full object-cover"
-          />
-        </div>
-      </section>
+      <div className="space-y-10 md:space-y-16">
+        <section className="relative flex items-center gap-5 md:grid md:grid-cols-[1.15fr_0.85fr] md:items-center md:gap-12">
+          <ShiningStars />
+          <ShootingStars />
+          <div className="min-w-0 flex-1 space-y-2 md:space-y-4">
+            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-[11px] font-semibold text-emerald-600 dark:text-emerald-400">
+              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-500" />
+              Tersedia untuk proyek baru
+            </div>
+            <p className="text-sm text-slate-500 transition-colors duration-300 dark:text-gray-300">Hello, I&apos;m</p>
+            <h1 className="text-2xl font-bold leading-tight md:text-6xl md:font-extrabold md:leading-[1.05] md:tracking-tight">
+              Gani <span className="text-purple-600 dark:text-purple-400">Maulana</span>
+            </h1>
+            <p className="inline-block border-b-2 border-purple-600 dark:border-purple-500 pb-1 text-xs font-medium text-slate-700 transition-colors duration-300 dark:text-gray-200 md:text-sm">
+              Web &amp; Mobile Developer
+            </p>
+            <p className="max-w-xl pt-1 text-xs leading-relaxed text-slate-500 transition-colors duration-300 dark:text-gray-400 md:text-base">
+              Saya seorang D3 Teknik Informatika yang bersemangat dalam membangun aplikasi modern, baik di web maupun mobile.
+            </p>
+            {/* CTA — desktop only */}
+            <div className="hidden gap-3 pt-3 md:flex">
+              <Link
+                href="/projects"
+                className="group inline-flex items-center gap-2 rounded-full bg-purple-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-purple-600/30 transition-colors hover:bg-purple-700"
+              >
+                Lihat Proyek
+                <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-100 dark:border-white/15 dark:text-slate-200 dark:hover:bg-white/5"
+              >
+                Hubungi Saya
+              </Link>
+              <a
+                href="/resume.pdf"
+                download
+                className="inline-flex items-center gap-2 rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-100 dark:border-white/15 dark:text-slate-200 dark:hover:bg-white/5"
+              >
+                <Download size={16} />
+                Download CV
+              </a>
+            </div>
+          </div>
+          {/* Foto profil */}
+          <div className="relative mx-auto h-28 w-28 shrink-0 md:h-80 md:w-80">
+            <div className="absolute inset-0 rounded-full bg-purple-500/30 blur-3xl" />
+            <div className="absolute -inset-4 rounded-full border border-dashed border-purple-400/40 md:-inset-6" />
+            <div className="relative h-full w-full rounded-full border-2 border-purple-500/60 p-1.5 shadow-[0_0_40px_rgba(168,85,247,0.3)] dark:border-purple-400/50 md:p-2">
+              <img
+                src="/testing/profile.jpg"
+                alt="Gani Maulana"
+                className="h-full w-full rounded-full object-cover"
+              />
+            </div>
+
+            {/* Chip melayang — desktop only */}
+            <div className="absolute -left-10 top-8 hidden rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-600 shadow-md dark:border-white/10 dark:bg-[#151324] dark:text-slate-300 md:block">
+              NextJS
+            </div>
+            <div className="absolute -right-6 bottom-12 hidden rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-600 shadow-md dark:border-white/10 dark:bg-[#151324] dark:text-slate-300 md:block">
+              Laravel
+            </div>
+          </div>
+        </section>
+
+        {/* ===== STATS — desktop only ===== */}
+        <section className="hidden gap-4 md:grid md:grid-cols-3">
+          {stats.map((stat) => {
+            const Icon = stat.icon;
+            return (
+              <div
+                key={stat.label}
+                className="flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-colors dark:border-white/10 dark:bg-white/5"
+              >
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center text-purple-600 dark:text-purple-400">
+                  <Icon size={40} />
+                </div>
+                <div className="text-left">
+                  <p className="text-2xl font-extrabold text-slate-900 dark:text-slate-100">
+                    {stat.value}
+                  </p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">{stat.label}</p>
+                </div>
+              </div>
+            );
+          })}
+        </section>
+      </div>
     </BackgroundFX>
   );
 }

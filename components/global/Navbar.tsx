@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 // Struktur data menggunakan SVG komponen langsung
-const items = [
+export const items = [
   {
     id: "home",
     href: "/",
@@ -164,7 +164,7 @@ export default function BottomNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed inset-x-4 bottom-4 z-50 mx-auto max-w-md rounded-[28px] border border-transparent bg-white p-2 shadow-[0_8px_30px_rgba(15,23,42,0.12)] transition-colors duration-300 dark:border-slate-800 dark:bg-slate-900 dark:shadow-[0_8px_30px_rgba(0,0,0,0.5)]">
+    <nav className="fixed inset-x-4 bottom-4 z-50 mx-auto md:hidden max-w-md rounded-[28px] border border-transparent bg-white p-2 shadow-[0_8px_30px_rgba(15,23,42,0.12)] transition-colors duration-300 dark:border-slate-800 dark:bg-slate-900 dark:shadow-[0_8px_30px_rgba(0,0,0,0.5)]">
       <ul className="flex items-center justify-between">
         {items.map(({ id, label, icon: Icon, href }) => {
           const isActive = pathname === href;

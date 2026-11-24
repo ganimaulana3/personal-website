@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { useTheme } from '../theme-provider';
+import { useTheme } from '../global/theme-provider';
 
 export default function BackgroundFX({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   const { theme } = useTheme();
