@@ -12,17 +12,17 @@ export default function BackgroundFX({ children, className = "" }: { children: R
 
   return (
     <>
-      <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-[#0a0618]">
+      <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-[#0C0B16]">
         {/* Lapisan Efek Cahaya & Bentuk Abstrak (Responsif Mobile & Desktop) */}
         <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
           {/* 1. Cahaya Pudar Kiri Atas */}
-          <div className="absolute -left-24 -top-24 h-80 w-80 rounded-full bg-[#3b1d82]/35 blur-[100px] md:h-[500px] md:w-[500px] md:blur-[140px]" />
+          <div className="absolute -left-24 -top-24 h-80 w-80 rounded-full bg-[#3B2678]/35 blur-[100px] md:h-[500px] md:w-[500px] md:blur-[140px]" />
 
           {/* 2. Cahaya Pudar Kanan Tengah */}
-          <div className="absolute -right-20 top-[25%] h-96 w-96 rounded-full bg-[#5222d0]/35 blur-[110px] md:right-[5%] md:top-[15%] md:h-[550px] md:w-[550px] md:blur-[150px]" />
+          <div className="absolute -right-20 top-[25%] h-96 w-96 rounded-full bg-[#7C5DFA]/35 blur-[110px] md:right-[5%] md:top-[15%] md:h-[550px] md:w-[550px] md:blur-[150px]" />
 
           {/* 3. Cahaya Pudar Kiri Bawah */}
-          <div className="absolute -bottom-24 -left-16 h-80 w-80 rounded-full bg-[#3b1d82]/40 blur-[100px] md:h-[450px] md:w-[450px] md:blur-[130px]" />
+          <div className="absolute -bottom-24 -left-16 h-80 w-80 rounded-full bg-[#3B2678]/40 blur-[100px] md:h-[450px] md:w-[450px] md:blur-[130px]" />
 
           {/* 4. Cincin Kanan Atas (Posisi terkunci di pojok kanan atas) */}
           <svg
@@ -56,7 +56,7 @@ export default function BackgroundFX({ children, className = "" }: { children: R
           >
             <defs>
               <linearGradient id="midWaveGrad" x1="500" y1="50" x2="100" y2="250" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stopColor="#7c4dff" stopOpacity="0.8" />
+                <stop offset="0%" stopColor="#5e35b1" stopOpacity="0.8" />
                 <stop offset="45%" stopColor="#431c9e" stopOpacity="0.3" />
                 <stop offset="100%" stopColor="#0a0618" stopOpacity="0" />
               </linearGradient>
