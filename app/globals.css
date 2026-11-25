@@ -53,13 +53,13 @@ body {
   background-size: 32px 32px;
 }
 
-.dark body {
+/* .dark body {
   background-color: #0C0B16;
   background-image:
     linear-gradient(rgba(156, 163, 175, 0.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(156, 163, 175, 0.05) 1px, transparent 1px);
   background-size: 32px 32px;
-}
+} */
 
 .dark .btn-grid {
   background-color: #1E1D2E;
