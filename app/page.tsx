@@ -5,6 +5,7 @@ import ShiningStars from "@/components/ShiningStars";
 import ShootingStars from "@/components/ShootingStars";
 import BackgroundFX from "@/components/home/BackgroundFX";
 import TimelineCard from "@/components/TimelineCard";
+import SkillsCard from "@/components/SkillsCard";
 
 const stats = [
   {
@@ -226,44 +227,41 @@ export default function Home() {
           </a>
         </section>
 
-        {/* Section Timeline + About */}
-        <section className="grid gap-4 md:grid-cols-2 md:gap-6">
-          {/* Kiri: Journey cards */}
-          <div className="space-y-4">
+        {/* Section Cards — masonry abstrak */}
+        <section className="gap-4 md:columns-2 md:gap-6">
+          {/* Karir */}
+          <div className="mb-4 break-inside-avoid md:mb-6">
             <TimelineCard title="Journey Karir" icon={<Briefcase className="h-5 w-5" />} items={careerData} />
+          </div>
+
+          {/* Pendidikan */}
+          <div className="mb-4 break-inside-avoid md:mb-6">
             <TimelineCard title="Journey Pendidikan" icon={<GraduationCap className="h-5 w-5" />} items={educationData} />
           </div>
 
-          {/* Kanan: About Me card + background PNG per tema */}
-          <div className="relative self-start overflow-hidden rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-colors dark:border-line dark:bg-surface md:p-6">
-            {/* Light mode */}
-            <img
-              src="/images/light/bg-laptop-light.png"
-              alt=""
-              className="absolute inset-0 h-full w-full object-cover dark:hidden"
-            />
-            {/* Dark mode */}
-            <img
-              src="/images/dark/bg-laptop-dark.png"
-              alt=""
-              className="absolute inset-0 hidden h-full w-full object-cover dark:block"
-            />
-            <div className="relative z-10 max-w-[65%]">
-              <div className="flex items-center gap-2.5">
-                <span className="text-brand dark:text-brand-soft"><UserRound /></span>
-                <h2 className="text-base font-semibold text-slate-900 dark:text-white">About Me</h2>
+          {/* About Me */}
+          <div className="mb-4 break-inside-avoid md:mb-6">
+            <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-colors dark:border-line dark:bg-surface md:p-6">
+              <img src="/images/light/bg-laptop-light.png" alt="" className="absolute inset-0 h-full w-full object-cover dark:hidden" />
+              <img src="/images/dark/bg-laptop-dark.png" alt="" className="absolute inset-0 hidden h-full w-full object-cover dark:block" />
+              <div className="relative z-10 max-w-[65%]">
+                <div className="flex items-center gap-2.5">
+                  <span className="text-brand dark:text-brand-soft"><UserRound /></span>
+                  <h2 className="text-base font-semibold text-slate-900 dark:text-white">About Me</h2>
+                </div>
+                <p className="mt-2 text-xs leading-relaxed text-slate-500 dark:text-mist md:text-sm">
+                  Saya Gani Maulana, mahasiswa D3 Teknik Informatika yang passionate membangun aplikasi web dan mobile modern. Fokus saya di frontend development dengan React dan Next.js, serta mobile development.
+                </p>
+                <Link href="/about" className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-brand transition-colors hover:text-brand-soft dark:text-brand-soft dark:hover:text-brand">
+                  Learn More <ArrowRight size={14} />
+                </Link>
               </div>
-              <p className="mt-2 text-xs leading-relaxed text-slate-500 dark:text-mist md:text-sm">
-                Saya Gani Maulana, mahasiswa D3 Teknik Informatika yang passionate membangun aplikasi web dan mobile modern. Fokus saya di frontend development dengan React dan Next.js, serta mobile development.
-              </p>
-              <Link
-                href="/about"
-                className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-brand transition-colors hover:text-brand-soft dark:text-brand-soft dark:hover:text-brand"
-              >
-                Learn More
-                <ArrowRight size={14} />
-              </Link>
             </div>
+          </div>
+
+          {/* Skills — di bawah About dalam urutan DOM */}
+          <div className="mb-4 break-inside-avoid md:mb-6">
+            <SkillsCard />
           </div>
         </section>
       </div>
