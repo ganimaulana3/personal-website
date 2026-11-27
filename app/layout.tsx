@@ -25,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="id">
+    <html lang="id" suppressHydrationWarning>
       <head>
         {/* Definisi callback — wajib sebelum element.js */}
         <Script id="google-translate-init" strategy="beforeInteractive">
