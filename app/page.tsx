@@ -79,7 +79,7 @@ export default function Home() {
               Tersedia untuk proyek baru
             </div>
             <p className="text-sm text-slate-500 transition-colors duration-300 dark:text-mist">Hello, I&apos;m</p>
-            <h1 className="text-2xl font-bold leading-tight md:text-6xl md:font-extrabold md:leading-[1.05] md:tracking-tight">
+            <h1 translate="no" className="text-2xl font-bold leading-tight md:text-6xl md:font-extrabold md:leading-[1.05] md:tracking-tight">
               Gani <span className="text-brand dark:text-brand-soft">Maulana</span>
             </h1>
             <p className="inline-block border-b-2 border-brand dark:border-brand pb-1 text-xs font-medium text-slate-700 transition-colors duration-300 dark:text-mist md:text-sm">
