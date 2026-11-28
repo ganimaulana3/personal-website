@@ -1,5 +1,5 @@
-import PageHeading from "@/components/global/PageHeading";
+import AboutContent from "@/components/about/AboutContent";
 
 export default function About() {
-  return <PageHeading navKey="about" />;
+  return <AboutContent />;
 }
