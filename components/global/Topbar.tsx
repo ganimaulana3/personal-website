@@ -7,10 +7,12 @@ import { Moon, Sun } from "lucide-react";
 import { useTheme } from "./theme-provider";
 import { items } from "./Navbar";
 import LanguageSwitcher from "./LanguageSwitcher";
+import { useI18n } from "./I18nProvider";
 
 export default function Topbar() {
     const pathname = usePathname();
     const { theme, toggleTheme } = useTheme();
+    const { dict } = useI18n();
 
     return (
         <header className="sticky top-0 z-40 hidden border-b border-slate-200 backdrop-blur-md transition-colors duration-300 dark:border-line md:block">
@@ -32,7 +34,7 @@ export default function Topbar() {
                 {/* Navigasi horizontal */}
                 <nav>
                     <ul className="flex items-center gap-1">
-                        {items.map(({ id, label, icon: Icon, href }) => {
+                        {items.map(({ id, icon: Icon, href }) => {
                             const isActive = pathname === href;
                             return (
                                 <li key={id}>
@@ -45,7 +47,7 @@ export default function Topbar() {
                                             }`}
                                     >
                                         <Icon className="h-4 w-4" />
-                                        {label}
+                                        {dict.nav[id]}
                                     </Link>
                                 </li>
                             );
@@ -59,8 +61,9 @@ export default function Topbar() {
 
                     {/* Tombol theme */}
                     <button
+                        type="button"
                         onClick={toggleTheme}
-                        aria-label="Ganti tema"
+                        aria-label={dict.common.toggleTheme}
                         className="flex h-10 items-center justify-center gap-2 rounded-full border px-4 shadow-sm transition-colors
                         border-slate-200 bg-white text-slate-600 hover:bg-slate-50
                         dark:border-line dark:bg-surface-2 dark:text-mist dark:shadow-none dark:hover:bg-[#27253B]"

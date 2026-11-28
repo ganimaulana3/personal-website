@@ -4,9 +4,11 @@ import Image from "next/image";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "../global/theme-provider";
 import LanguageSwitcher from "./LanguageSwitcher";
+import { useI18n } from "./I18nProvider";
 
 export default function Header() {
   const { theme, toggleTheme } = useTheme();
+  const { dict } = useI18n();
 
   return (
     <header className="flex items-center justify-between border-b border-slate-200 px-5 py-4 dark:border-line md:hidden">
@@ -23,8 +25,9 @@ export default function Header() {
 
         {/* Tombol theme */}
         <button
+          type="button"
           onClick={toggleTheme}
-          aria-label="Ganti tema"
+          aria-label={dict.common.toggleTheme}
           className="flex h-10 items-center justify-center gap-2 rounded-full border px-4 shadow-sm transition-colors
             border-slate-200 bg-white text-slate-600 hover:bg-slate-50
             dark:border-line dark:bg-surface-2 dark:text-mist dark:shadow-none dark:hover:bg-[#27253B]"

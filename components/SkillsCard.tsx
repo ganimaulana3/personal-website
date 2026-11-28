@@ -1,9 +1,12 @@
+"use client";
+
 import Link from "next/link";
 import { ReactIcon, Laravel, Nextjs, Tailwind, TypeScript, PHP, MySQL, PostgreSQL } from "./CustomIcons";
 import {
   ChevronRight,
   Star,
 } from "lucide-react";
+import { useI18n } from "./global/I18nProvider";
 
 const skills = [
   { name: "React", icon: ReactIcon },
@@ -17,6 +20,8 @@ const skills = [
 ];
 
 export default function SkillsCard() {
+  const { dict } = useI18n();
+
   return (
     <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-line dark:bg-surface md:p-6">
       {/* Header */}
@@ -24,14 +29,14 @@ export default function SkillsCard() {
         <div className="flex items-center gap-2.5">
           <Star className="h-4 w-4 fill-brand text-brand dark:text-brand-soft" />
           <h2 className="text-base font-semibold text-slate-900 dark:text-white">
-            Skills
+            {dict.home.skillsTitle}
           </h2>
         </div>
         <Link
           href="/skills"
           className="flex items-center gap-1 text-xs text-slate-500 transition-colors hover:text-brand dark:text-mist dark:hover:text-brand-soft"
         >
-          Lihat Semua <ChevronRight className="h-3.5 w-3.5" />
+          {dict.common.viewAll} <ChevronRight className="h-3.5 w-3.5" />
         </Link>
       </div>
 

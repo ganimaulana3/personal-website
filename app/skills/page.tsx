@@ -1,7 +1,5 @@
+import PageHeading from "@/components/global/PageHeading";
+
 export default function Skills() {
-    return (
-        <div>
-            <h1>Skills</h1>
-        </div>
-    );
+  return <PageHeading navKey="skills" />;
 }

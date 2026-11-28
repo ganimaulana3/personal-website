@@ -1,7 +1,5 @@
+import PageHeading from "@/components/global/PageHeading";
+
 export default function About() {
-    return (
-        <div>
-            <h1>About</h1>
-        </div>
-    );
+  return <PageHeading navKey="about" />;
 }

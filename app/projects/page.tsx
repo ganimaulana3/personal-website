@@ -1,7 +1,5 @@
+import PageHeading from "@/components/global/PageHeading";
+
 export default function Projects() {
-    return (
-        <div>
-            <h1>Projects</h1>
-        </div>
-    );
+  return <PageHeading navKey="projects" />;
 }

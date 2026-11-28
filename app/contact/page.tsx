@@ -1,7 +1,5 @@
+import PageHeading from "@/components/global/PageHeading";
+
 export default function Contact() {
-    return (
-        <div>
-            <h1>Contact</h1>
-        </div>
-    );
+  return <PageHeading navKey="contact" />;
 }

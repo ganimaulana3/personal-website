@@ -1,11 +1,19 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import type { Dictionary } from "@/lib/i18n";
+import { useI18n } from "./I18nProvider";
+
+type NavId = keyof Dictionary["nav"];
 
 // Struktur data menggunakan SVG komponen langsung
-export const items = [
+export const items: ReadonlyArray<{
+  id: NavId;
+  href: string;
+  label: string;
+  icon: (props: React.SVGProps<SVGSVGElement>) => React.ReactNode;
+}> = [
   {
     id: "home",
     href: "/",
@@ -162,11 +170,12 @@ export const items = [
 
 export default function BottomNav() {
   const pathname = usePathname();
+  const { dict } = useI18n();
 
   return (
     <nav className="fixed inset-x-4 bottom-4 z-50 mx-auto md:hidden max-w-md rounded-[28px] border border-transparent bg-white p-2 shadow-[0_8px_30px_rgba(15,23,42,0.12)] transition-colors duration-300 dark:border-line dark:bg-ink-900 dark:shadow-[0_8px_30px_rgba(0,0,0,0.5)]">
       <ul className="flex items-center justify-between">
-        {items.map(({ id, label, icon: Icon, href }) => {
+        {items.map(({ id, icon: Icon, href }) => {
           const isActive = pathname === href;
           return (
             <li key={id}>
@@ -181,7 +190,7 @@ export default function BottomNav() {
               >
                 {/* Mengirimkan width & height via className/props tailwind ke komponen SVG */}
                 <Icon className="h-5 w-5" />
-                {label}
+                {dict.nav[id]}
               </Link>
             </li>
           );
